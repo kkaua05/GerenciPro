@@ -11,7 +11,7 @@ export default function ProtectedRoute({ children, allowedRoles = [] }) {
         alignItems: 'center', 
         justifyContent: 'center', 
         height: '100vh',
-        background: '#F8FAFC'
+        background: 'var(--surface-base)'
       }}>
         <div className="loading-spinner lg" />
       </div>
