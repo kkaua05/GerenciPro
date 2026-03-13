@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { 
   LayoutDashboard, Users, DollarSign, CalendarDays, 
-  LogOut, Building2
+  LogOut
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -38,13 +38,13 @@ export default function AppLayout({ children }) {
             <div className="brand-icon">RT</div>
             <div className="brand-text">
               <div className="name">Consultoria RTCOM</div>
-              <div className="subtitle">Sistema de Gestão</div>
+              <div className="subtitle">SISTEMA DE GESTÃO</div>
             </div>
           </div>
         </div>
 
         <nav className="sidebar-nav">
-          <div className="nav-section-label">Principal</div>
+          <div className="nav-section-label">PRINCIPAL</div>
           {filteredNavItems.map((item) => (
             <Link
               key={item.path}
@@ -63,15 +63,19 @@ export default function AppLayout({ children }) {
             <div className="user-info">
               <div className="user-name">{user.nome}</div>
               <div className="user-role">
-                {isAdmin ? (
-                  <span className="badge badge-admin" style={{ padding: '2px 6px', fontSize: 9 }}>ADMIN</span>
-                ) : (
-                  <span className="badge badge-funcionario" style={{ padding: '2px 6px', fontSize: 9 }}>FUNCIONÁRIO</span>
-                )}
+                <span className="badge badge-blue" style={{ padding: '2px 6px', fontSize: 9 }}>
+                  {isAdmin ? 'ADMIN' : 'FUNCIONÁRIO'}
+                </span>
               </div>
             </div>
-            <button className="logout-btn" onClick={logout} title="Sair">
-              <LogOut size={18} />
+            <button className="logout-btn" onClick={logout} title="Sair" style={{ 
+              background: 'none', 
+              border: 'none', 
+              cursor: 'pointer', 
+              color: 'var(--text-muted)',
+              marginLeft: 'auto'
+            }}>
+              <LogOut size={16} />
             </button>
           </div>
         </div>
